@@ -2,140 +2,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AcePoint Tutorials | JAMB & WAEC</title>
-  <meta name="description" content="Learn, practise and prepare for JAMB and WAEC with AcePoint Tutorials.">
-  <style>
-    :root {
-      --green: #16a34a;
-      --dark: #101810;
-      --light: #f5f8f5;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--light);
-      color: #172117;
-    }
-    header {
-      background: var(--dark);
-      color: white;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .brand { font-size: 22px; font-weight: 800; }
-    .brand span { color: #4ade80; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 14px;
-      font-size: 14px;
-    }
-    .hero {
-      padding: 65px 6%;
-      background: linear-gradient(135deg, #101810, #173c24);
-      color: white;
-    }
-    .hero h1 { font-size: clamp(32px, 7vw, 52px); max-width: 650px; }
-    .hero p { color: #d4e8d8; line-height: 1.7; max-width: 540px; }
-    .btn {
-      display: inline-block;
-      padding: 13px 20px;
-      margin: 8px 8px 0 0;
-      background: var(--green);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      border: 0;
-      cursor: pointer;
-    }
-    .btn.secondary { background: white; color: var(--dark); }
-    main { padding: 36px 6%; }
-    .section-title { font-size: 28px; }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: white;
-      padding: 22px;
-      border-radius: 12px;
-      border: 1px solid #e0e8e0;
-    }
-    .card h3 { margin-top: 0; }
-    .card p { color: #596459; line-height: 1.6; }
-    .tag { color: #15803d; font-weight: bold; }
-    #status { margin-top: 12px; color: #15803d; }
-    footer {
-      background: var(--dark);
-      color: #d4e8d8;
-      padding: 24px 6%;
-      text-align: center;
-    }
-    @media (max-width: 500px) {
-      nav { width: 100%; }
-      nav a { margin: 0 10px 0 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AcePoint Tutorials — JAMB and WAEC learning and CBT practice.">
+<title>AcePoint Tutorials | Learn. Practise. Excel.</title>
+<style>
+:root{--green:#16a34a;--dark:#101810;--light:#f4f8f4;--muted:#657065;--border:#dfe8df}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:#172117}
+header{background:var(--dark);color:white;padding:17px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-size:21px;font-weight:800}.brand span{color:#4ade80}
+nav{display:flex;gap:15px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:#4ade80}
+.hero{padding:60px 6%;background:linear-gradient(135deg,#101810,#174b2b);color:white}
+.hero h1{font-size:clamp(32px,7vw,52px);max-width:680px;margin:12px 0}
+.hero p{line-height:1.7;max-width:570px;color:#d4e8d8}
+.btn{display:inline-block;border:0;border-radius:8px;padding:13px 18px;background:var(--green);color:white;font-weight:bold;text-decoration:none;cursor:pointer;font-size:15px;margin:5px 5px 5px 0}
+.btn:hover{filter:brightness(.93)}
+.btn.secondary{background:white;color:var(--dark)}
+main{max-width:1100px;margin:auto;padding:30px 5%}
+.section{margin:0 0 42px;scroll-margin-top:18px}
+.section-title{font-size:27px;margin-bottom:8px}
+.muted{color:var(--muted);line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:20px}
+.card{background:white;padding:21px;border:1px solid var(--border);border-radius:13px}
+.card h3{margin-top:0}
+.card p{color:var(--muted);line-height:1.6}
+.tag{color:#4ade80;font-weight:bold;letter-spacing:1px}
+.panel{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;margin-top:18px}
+label{display:block;font-weight:bold;margin:14px 0 7px}
+select,input{width:100%;padding:12px;border:1px solid #cbd5cb;border-radius:8px;background:white;font-size:16px;color:#172117}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.hidden{display:none!important}
+.exam-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:12px}
+.timer{font-size:20px;font-weight:bold;color:#b91c1c}
+.progress{height:8px;background:#e5e7eb;border-radius:10px;overflow:hidden;margin:16px 0}
+.progress div{height:100%;width:0;background:var(--green);transition:width .2s}
+.question-number{font-size:14px;color:var(--muted);margin:8px 0}
+.question-text{font-size:20px;line-height:1.5;font-weight:bold}
+.option{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--border);border-radius:9px;padding:13px;margin:10px 0;cursor:pointer;font-weight:normal;line-height:1.5}
+.option:has(input:checked){border-color:var(--green);background:#f0fdf4}
+.option input{width:auto;margin-top:4px;accent-color:var(--green)}
+.exam-actions{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;margin-top:20px}
+.result-score{font-size:38px;font-weight:800;color:#15803d}
+.review-item{border:1px solid var(--border);border-radius:10px;padding:15px;margin:12px 0;background:white}
+.correct{color:#15803d;font-weight:bold}.wrong{color:#b91c1c;font-weight:bold}
+footer{background:var(--dark);color:#d4e8d8;padding:25px 5%;text-align:center}
+.small{font-size:13px;color:var(--muted);line-height:1.6}
+button:focus,a:focus,select:focus,input:focus{outline:2px solid #16a34a;outline-offset:2px}
+@media(max-width:520px){.row{grid-template-columns:1fr}.hero{padding:43px 5%}main{padding:25px 4%}.panel{padding:15px}.question-text{font-size:18px}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand">AcePoint <span>Tutorials</span></div>
-    <nav>
-      <a href="#learn">Learn</a>
-      <a href="#cbt">CBT Practice</a>
-      <a href="#about">About</a>
-    </nav>
-  </header>
+<header>
+  <div class="brand">AcePoint <span>Tutorials</span></div>
+  <nav>
+    <a href="#learn">Learn</a>
+    <a href="#cbt">CBT Practice</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <p class="tag">YOUR EXAM. YOUR FUTURE.</p>
-    <h1>Prepare smarter for JAMB and WAEC.</h1>
-    <p>Build your understanding, practise exam-style questions and track your learning journey with AcePoint Tutorials.</p>
-    <a class="btn" href="#learn">Explore learning</a>
-    <a class="btn secondary" href="#cbt">Try practice</a>
-  </section>
+<section class="hero">
+  <p class="tag">YOUR EXAM. YOUR FUTURE.</p>
+  <h1>Prepare smarter for JAMB and WAEC.</h1>
+  <p>Study with purpose, test your understanding and review your answers with AcePoint Tutorials.</p>
+  <a class="btn" href="#learn">Explore learning</a>
+  <a class="btn secondary" href="#cbt">Start CBT practice</a>
+</section>
 
-  <main>
-    <section id="learn">
-      <h2 class="section-title">Your learning centre</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>📚 Study lessons</h3>
-          <p>Organised lessons by subject and topic. We'll connect these to your Supabase database next.</p>
-        </article>
-        <article class="card" id="cbt">
-          <h3>📝 CBT practice</h3>
-          <p>We'll connect the question bank, timed exams, marking and results after the database is configured.</p>
-        </article>
-        <article class="card">
-          <h3>📈 Track progress</h3>
-          <p>Student accounts and saved progress will be added in the next stages.</p>
-        </article>
+<main>
+<section id="learn" class="section">
+  <h2 class="section-title">Your learning centre</h2>
+  <p class="muted">Start with practice questions now. Structured lessons and a larger question bank will be added in later stages.</p>
+  <div class="cards">
+    <article class="card">
+      <h3>📚 Study lessons</h3>
+      <p>Organised lessons by subject and topic are part of our next development stage.</p>
+    </article>
+    <article class="card">
+      <h3>📝 CBT practice</h3>
+      <p>Answer multiple-choice questions, use the timer and review your results.</p>
+      <a class="btn" href="#cbt">Open CBT</a>
+    </article>
+    <article class="card">
+      <h3>📈 Learning progress</h3>
+      <p>Your score is shown at the end of each practice session. Account-based history comes later.</p>
+    </article>
+  </div>
+</section>
+
+<section id="cbt" class="section">
+  <h2 class="section-title">Computer-Based Test</h2>
+  <p class="muted">Choose an exam and subject, then begin your practice session.</p>
+
+  <div id="setup" class="panel">
+    <div class="row">
+      <div>
+        <label for="examType">Exam type</label>
+        <select id="examType">
+          <option value="JAMB">JAMB practice</option>
+          <option value="WAEC">WAEC practice</option>
+        </select>
       </div>
-      <p id="status">AcePoint Tutorials website foundation loaded.</p>
-    </section>
+      <div>
+        <label for="subject">Subject</label>
+        <select id="subject">
+          <option value="Mathematics">Mathematics</option>
+          <option value="English">Use of English</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+        </select>
+      </div>
+    </div>
+    <p class="small">This first version uses demonstration questions only. It is not yet a complete official JAMB or WAEC question bank.</p>
+    <button class="btn" id="startBtn">Start examination</button>
+  </div>
 
-    <section id="about">
-      <h2 class="section-title">About AcePoint Tutorials</h2>
-      <p>We're building a learning platform to help candidates prepare for JAMB and WAEC with structured study materials and exam practice.</p>
-    </section>
-  </main>
+  <div id="exam" class="panel hidden">
+    <div class="exam-top">
+      <div>
+        <strong id="examHeading">Practice test</strong>
+        <div class="small" id="examDetails"></div>
+      </div>
+      <div class="timer" id="timer" aria-live="polite">20:00</div>
+    </div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div class="question-number" id="questionNumber"></div>
+    <div class="question-text" id="questionText"></div>
+    <div id="options"></div>
+    <div class="exam-actions">
+      <button class="btn secondary" id="prevBtn">Previous</button>
+      <button class="btn" id="nextBtn">Next</button>
+      <button class="btn hidden" id="submitBtn">Submit test</button>
+    </div>
+    <p class="small" id="answeredCount"></p>
+  </div>
 
-  <footer>
-    <p>© <span id="year"></span> AcePoint Tutorials. Learn with purpose.</p>
-  </footer>
+  <div id="results" class="panel hidden" aria-live="polite">
+    <h3>Examination complete</h3>
+    <p>Your score:</p>
+    <div class="result-score" id="scoreText"></div>
+    <p id="resultMessage"></p>
+    <p id="resultDetails" class="muted"></p>
+    <button class="btn" id="reviewBtn">Review answers</button>
+    <button class="btn secondary" id="retryBtn">Try again</button>
+    <div id="review" class="hidden">
+      <h3>Answer review</h3>
+      <div id="reviewList"></div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<section id="about" class="section">
+  <h2 class="section-title">About AcePoint Tutorials</h2>
+  <p class="muted">AcePoint Tutorials is being developed to help candidates prepare for JAMB and WAEC through organised study materials and exam practice.</p>
+</section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> AcePoint Tutorials. Learn with purpose.</p>
+</footer>
+
+<script>
+"use strict";
+
+const questionBank = {
+  Mathematics: [
+    {q:"Simplify 3/18 to its lowest terms.",o:["1/3","1/6","1/9","3/6"],a:1,e:"Divide the numerator and denominator by 3: 3/18 = 1/6."},
+    {q:"Solve: 2x + 5 = 13.",o:["3","4","5","9"],a:1,e:"Subtract 5 from both sides to get 2x = 8, so x = 4."},
+    {q:"Find the area of a rectangle of length 8 cm and width 3 cm.",o:["11 cm²","22 cm²","24 cm²","48 cm²"],a:2,e:"Area = length × width = 8 × 3 = 24 cm²."},
+    {q:"Express 0.25 as a fraction in its lowest terms.",o:["1/2","1/3","1/4","2/5"],a:2,e:"0.25 = 25/100 = 1/4."},
+    {q:"What is the sum of the interior angles of a triangle?",o:["90°","180°","270°","360°"],a:1,e:"The interior angles of a triangle add up to 180°."}
+  ],
+  English: [
+    {q:"Choose the word nearest in meaning to 'rapid'.",o:["Slow","Quick","Weak","Late"],a:1,e:"Rapid means happening or moving quickly."},
+    {q:"Choose the correct option: She _____ to school every day.",o:["go","going","goes","gone"],a:2,e:"With 'she' in the simple present tense, use 'goes'."},
+    {q:"Choose the opposite of 'ancient'.",o:["Old","Historic","Modern","Former"],a:2,e:"Modern is the opposite of ancient."},
+    {q:"Which word is a noun?",o:["Beautiful","Quickly","Happiness","Run"],a:2,e:"Happiness is a noun naming a state or quality."},
+    {q:"Choose the correct sentence.",o:["They was ready.","They were ready.","They is ready.","They be ready."],a:1,e:"'They' takes 'were' in the past tense."}
+  ],
+  Physics: [
+    {q:"What is the SI unit of force?",o:["Joule","Watt","Newton","Pascal"],a:2,e:"Force is measured in newtons (N)."},
+    {q:"Which instrument measures electric current?",o:["Voltmeter","Ammeter","Barometer","Thermometer"],a:1,e:"An ammeter measures electric current."},
+    {q:"Speed is calculated as:",o:["Time ÷ distance","Distance × time","Distance ÷ time","Mass × acceleration"],a:2,e:"Speed = distance travelled divided by time taken."},
+    {q:"Which form of energy is associated with a moving object?",o:["Kinetic energy","Chemical energy","Nuclear energy","Elastic potential energy"],a:0,e:"A moving object possesses kinetic energy."},
+    {q:"What is the approximate acceleration due to gravity near Earth's surface?",o:["0.98 m/s²","9.8 m/s²","98 m/s²","980 m/s²"],a:1,e:"The usual approximate value is 9.8 m/s²."}
+  ],
+  Chemistry: [
+    {q:"What is the chemical symbol for sodium?",o:["S","So","Na","N"],a:2,e:"The chemical symbol for sodium is Na."},
+    {q:"A solution with pH 2 is:",o:["Acidic","Neutral","Alkaline","Always pure water"],a:0,e:"A pH below 7 indicates an acidic solution."},
+    {q:"What is the chemical formula of water?",o:["CO₂","H₂O","O₂","NaCl"],a:1,e:"Water contains two hydrogen atoms and one oxygen atom: H₂O."},
+    {q:"Which gas is required for ordinary combustion?",o:["Nitrogen","Oxygen","Helium","Hydrogen only"],a:1,e:"Oxygen supports ordinary combustion."},
+    {q:"What is the charge of an electron?",o:["Positive","Negative","Neutral","It has no charge or mass"],a:1,e:"An electron carries a negative electric charge."}
+  ]
+};
+
+const $ = id => document.getElementById(id);
+let questions = [];
+let answers = [];
+let current = 0;
+let seconds = 1200;
+let timerId = null;
+let finished = false;
+
+$("year").textContent = new Date().getFullYear();
+
+function shuffle(items){
+  const copy = items.slice();
+  for(let i=copy.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [copy[i],copy[j]]=[copy[j],copy[i]];
+  }
+  return copy;
+}
+
+function startExam(){
+  clearInterval(timerId);
+  const subject = $("subject").value;
+  const examType = $("examType").value;
+  questions = shuffle(questionBank[subject]);
+  answers = Array(questions.length).fill(null);
+  current = 0;
+  seconds = 1200;
+  finished = false;
+
+  $("setup").classList.add("hidden");
+  $("results").classList.add("hidden");
+  $("exam").classList.remove("hidden");
+  $("review").classList.add("hidden");
+  $("examHeading").textContent = examType + " practice";
+  $("examDetails").textContent = subject + " • Demonstration test";
+  renderQuestion();
+  updateTimer();
+  timerId = setInterval(()=>{
+    seconds--;
+    updateTimer();
+    if(seconds<=0) submitExam(true);
+  },1000);
+  $("cbt").scrollIntoView({behavior:"smooth"});
+}
+
+function updateTimer(){
+  const m=Math.floor(seconds/60);
+  const s=seconds%60;
+  $("timer").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+
+function renderQuestion(){
+  const q=questions[current];
+  $("questionNumber").textContent="Question "+(current+1)+" of "+questions.length;
+  $("questionText").textContent=q.q;
+  $("options").replaceChildren();
+
+  q.o.forEach((option,index)=>{
+    const label=document.createElement("label");
+    label.className="option";
+    const radio=document.createElement("input");
+    radio.type="radio";
+    radio.name="answer";
+    radio.value=index;
+    radio.checked=answers[current]===index;
+    radio.addEventListener("change",()=>{
+      answers[current]=index;
+      updateProgress();
+    });
+    const text=document.createElement("span");
+    text.textContent=String.fromCharCode(65+index)+". "+option;
+    label.append(radio,text);
+    $("options").append(label);
+  });
+
+  $("prevBtn").disabled=current===0;
+  $("nextBtn").classList.toggle("hidden",current===questions.length-1);
+  $("submitBtn").classList.toggle("hidden",current!==questions.length-1);
+  updateProgress();
+}
+
+function updateProgress(){
+  const answered=answers.filter(a=>a!==null).length;
+  $("answeredCount").textContent=answered+" of "+questions.length+" questions answered";
+  $("progressBar").style.width=(answered/questions.length*100)+"%";
+}
+
+function submitExam(auto=false){
+  if(finished)return;
+  if(!auto && !confirm("Submit your examination now?"))return;
+  finished=true;
+  clearInterval(timerId);
+  let score=0;
+  questions.forEach((q,i)=>{if(answers[i]===q.a)score++;});
+  const percent=Math.round(score/questions.length*100);
+  $("exam").classList.add("hidden");
+  $("results").classList.remove("hidden");
+  $("scoreText").textContent=score+" / "+questions.length+" ("+percent+"%)";
+  $("resultMessage").textContent=auto&&seconds<=0?"Time is up. Your test has been submitted.":percent>=80?"Excellent work! Keep practising.":percent>=50?"Good effort. Review your mistakes and practise again.":"Keep learning. Review the explanations and try again.";
+  $("resultDetails").textContent="Correct: "+score+" • Incorrect or unanswered: "+(questions.length-score)+". This result is for this browser practice session only.";
+  $("review").classList.add("hidden");
+  $("reviewBtn").textContent="Review answers";
+  $("cbt").scrollIntoView({behavior:"smooth"});
+}
+
+function showReview(){
+  const container=$("reviewList");
+  container.replaceChildren();
+  questions.forEach((q,i)=>{
+    const item=document.createElement("article");
+    item.className="review-item";
+    const heading=document.createElement("p");
+    heading.textContent="Question "+(i+1)+": "+q.q;
+    const your=document.createElement("p");
+    const chosen=answers[i]===null?"Not answered":q.o[answers[i]];
+    your.textContent="Your answer: "+chosen;
+    your.className=answers[i]===q.a?"correct":"wrong";
+    const correct=document.createElement("p");
+    correct.className="correct";
+    correct.textContent="Correct answer: "+q.o[q.a];
+    const explanation=document.createElement("p");
+    explanation.textContent="Explanation: "+q.e;
+    item.append(heading,your,correct,explanation);
+    container.append(item);
+  });
+  $("review").classList.remove("hidden");
+  $("review").scrollIntoView({behavior:"smooth"});
+}
+
+$("startBtn").addEventListener("click",startExam);
+$("prevBtn").addEventListener("click",()=>{
+  if(current>0){current--;renderQuestion();}
+});
+$("nextBtn").addEventListener("click",()=>{
+  if(current<questions.length-1){current++;renderQuestion();}
+});
+$("submitBtn").addEventListener("click",()=>submitExam(false));
+$("reviewBtn").addEventListener("click",()=>{
+  const isHidden=$("review").classList.contains("hidden");
+  if(isHidden)showReview();
+  else $("review").classList.add("hidden");
+});
+$("retryBtn").addEventListener("click",()=>{
+  $("results").classList.add("hidden");
+  $("setup").classList.remove("hidden");
+  $("cbt").scrollIntoView({behavior:"smooth"});
+});
+</script>
 </body>
-</html>
+                                                  </html>
+                                                  
