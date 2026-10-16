@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AcePoint Tutorials | JAMB & WAEC</title>
+  <meta name="description" content="Learn, practise and prepare for JAMB and WAEC with AcePoint Tutorials.">
+  <style>
+    :root {
+      --green: #16a34a;
+      --dark: #101810;
+      --light: #f5f8f5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: #172117;
+    }
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand { font-size: 22px; font-weight: 800; }
+    .brand span { color: #4ade80; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 14px;
+      font-size: 14px;
+    }
+    .hero {
+      padding: 65px 6%;
+      background: linear-gradient(135deg, #101810, #173c24);
+      color: white;
+    }
+    .hero h1 { font-size: clamp(32px, 7vw, 52px); max-width: 650px; }
+    .hero p { color: #d4e8d8; line-height: 1.7; max-width: 540px; }
+    .btn {
+      display: inline-block;
+      padding: 13px 20px;
+      margin: 8px 8px 0 0;
+      background: var(--green);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 0;
+      cursor: pointer;
+    }
+    .btn.secondary { background: white; color: var(--dark); }
+    main { padding: 36px 6%; }
+    .section-title { font-size: 28px; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      border: 1px solid #e0e8e0;
+    }
+    .card h3 { margin-top: 0; }
+    .card p { color: #596459; line-height: 1.6; }
+    .tag { color: #15803d; font-weight: bold; }
+    #status { margin-top: 12px; color: #15803d; }
+    footer {
+      background: var(--dark);
+      color: #d4e8d8;
+      padding: 24px 6%;
+      text-align: center;
+    }
+    @media (max-width: 500px) {
+      nav { width: 100%; }
+      nav a { margin: 0 10px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">AcePoint <span>Tutorials</span></div>
+    <nav>
+      <a href="#learn">Learn</a>
+      <a href="#cbt">CBT Practice</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="tag">YOUR EXAM. YOUR FUTURE.</p>
+    <h1>Prepare smarter for JAMB and WAEC.</h1>
+    <p>Build your understanding, practise exam-style questions and track your learning journey with AcePoint Tutorials.</p>
+    <a class="btn" href="#learn">Explore learning</a>
+    <a class="btn secondary" href="#cbt">Try practice</a>
+  </section>
+
+  <main>
+    <section id="learn">
+      <h2 class="section-title">Your learning centre</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>📚 Study lessons</h3>
+          <p>Organised lessons by subject and topic. We'll connect these to your Supabase database next.</p>
+        </article>
+        <article class="card" id="cbt">
+          <h3>📝 CBT practice</h3>
+          <p>We'll connect the question bank, timed exams, marking and results after the database is configured.</p>
+        </article>
+        <article class="card">
+          <h3>📈 Track progress</h3>
+          <p>Student accounts and saved progress will be added in the next stages.</p>
+        </article>
+      </div>
+      <p id="status">AcePoint Tutorials website foundation loaded.</p>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About AcePoint Tutorials</h2>
+      <p>We're building a learning platform to help candidates prepare for JAMB and WAEC with structured study materials and exam practice.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> AcePoint Tutorials. Learn with purpose.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
