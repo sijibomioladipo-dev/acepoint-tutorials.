@@ -4,350 +4,351 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="AcePoint Tutorials — JAMB and WAEC learning and CBT practice.">
-<title>AcePoint Tutorials | Learn. Practise. Excel.</title>
+<meta name="theme-color" content="#07110c">
+<title>AcePoint Tutorials | JAMB & WAEC Learning</title>
 <style>
-:root{--green:#16a34a;--dark:#101810;--light:#f4f8f4;--muted:#657065;--border:#dfe8df}
+:root{--bg:#07110c;--panel:#101d15;--panel2:#15251b;--green:#39d979;--green2:#168447;--blue:#64aaff;--text:#f2fff5;--muted:#a6b9ab;--border:#294233;--red:#ff7676}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:#172117}
-header{background:var(--dark);color:white;padding:17px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.brand{font-size:21px;font-weight:800}.brand span{color:#4ade80}
-nav{display:flex;gap:15px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-size:14px}
-nav a:hover{color:#4ade80}
-.hero{padding:60px 6%;background:linear-gradient(135deg,#101810,#174b2b);color:white}
-.hero h1{font-size:clamp(32px,7vw,52px);max-width:680px;margin:12px 0}
-.hero p{line-height:1.7;max-width:570px;color:#d4e8d8}
-.btn{display:inline-block;border:0;border-radius:8px;padding:13px 18px;background:var(--green);color:white;font-weight:bold;text-decoration:none;cursor:pointer;font-size:15px;margin:5px 5px 5px 0}
-.btn:hover{filter:brightness(.93)}
-.btn.secondary{background:white;color:var(--dark)}
-main{max-width:1100px;margin:auto;padding:30px 5%}
-.section{margin:0 0 42px;scroll-margin-top:18px}
-.section-title{font-size:27px;margin-bottom:8px}
-.muted{color:var(--muted);line-height:1.6}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:20px}
-.card{background:white;padding:21px;border:1px solid var(--border);border-radius:13px}
-.card h3{margin-top:0}
-.card p{color:var(--muted);line-height:1.6}
-.tag{color:#4ade80;font-weight:bold;letter-spacing:1px}
-.panel{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;margin-top:18px}
-label{display:block;font-weight:bold;margin:14px 0 7px}
-select,input{width:100%;padding:12px;border:1px solid #cbd5cb;border-radius:8px;background:white;font-size:16px;color:#172117}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif;line-height:1.6}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+header{position:sticky;top:0;z-index:5;background:#07110cf5;border-bottom:1px solid var(--border);padding:12px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-size:21px;font-weight:900;color:var(--green)}
+.brand small{display:block;font-size:10px;letter-spacing:2px;color:var(--muted)}
+nav{display:flex;gap:7px;flex-wrap:wrap}
+button,.btn{border:1px solid var(--border);border-radius:9px;background:var(--panel2);color:var(--text);padding:10px 13px}
+button:hover,.btn:hover{border-color:var(--green)}
+.primary{background:var(--green);color:#041109;border-color:var(--green);font-weight:bold}
+.danger{color:var(--red)}
+main{max-width:1100px;margin:auto;padding:25px 16px 60px}
+section{margin-bottom:32px}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.15;margin:12px 0}
+h2{font-size:25px;margin:8px 0 14px}
+h3{margin:6px 0}
+p{color:var(--muted)}
+.hero{padding:35px 22px;border:1px solid var(--border);border-radius:20px;background:radial-gradient(ellipse at top right,#174d2b 0%,transparent 60%),var(--panel)}
+.eyebrow{color:var(--green);font-weight:bold;letter-spacing:2px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:17px}
+.card p{margin:6px 0 12px}
+.big{font-size:28px;font-weight:bold;color:var(--green)}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row>*{flex:1}
+input,select,textarea{width:100%;background:#07140c;color:var(--text);border:1px solid var(--border);border-radius:8px;padding:11px;margin:5px 0 12px}
+textarea{min-height:85px;resize:vertical}
+label{display:block;font-size:13px;color:var(--muted)}
 .hidden{display:none!important}
-.exam-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:12px}
-.timer{font-size:20px;font-weight:bold;color:#b91c1c}
-.progress{height:8px;background:#e5e7eb;border-radius:10px;overflow:hidden;margin:16px 0}
-.progress div{height:100%;width:0;background:var(--green);transition:width .2s}
-.question-number{font-size:14px;color:var(--muted);margin:8px 0}
-.question-text{font-size:20px;line-height:1.5;font-weight:bold}
-.option{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--border);border-radius:9px;padding:13px;margin:10px 0;cursor:pointer;font-weight:normal;line-height:1.5}
-.option:has(input:checked){border-color:var(--green);background:#f0fdf4}
-.option input{width:auto;margin-top:4px;accent-color:var(--green)}
-.exam-actions{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;margin-top:20px}
-.result-score{font-size:38px;font-weight:800;color:#15803d}
-.review-item{border:1px solid var(--border);border-radius:10px;padding:15px;margin:12px 0;background:white}
-.correct{color:#15803d;font-weight:bold}.wrong{color:#b91c1c;font-weight:bold}
-footer{background:var(--dark);color:#d4e8d8;padding:25px 5%;text-align:center}
-.small{font-size:13px;color:var(--muted);line-height:1.6}
-button:focus,a:focus,select:focus,input:focus{outline:2px solid #16a34a;outline-offset:2px}
-@media(max-width:520px){.row{grid-template-columns:1fr}.hero{padding:43px 5%}main{padding:25px 4%}.panel{padding:15px}.question-text{font-size:18px}}
+.pill{display:inline-block;padding:4px 9px;border-radius:20px;background:#193c27;color:var(--green);font-size:12px}
+.notice{border-left:3px solid var(--blue);padding:10px 13px;background:#101e2a;color:#d7eaff;border-radius:5px;margin:12px 0}
+.warning{border-left:3px solid #e9b94d;padding:10px 13px;background:#282315;color:#ffe8a6;border-radius:5px;margin:12px 0}
+.list-item{border-bottom:1px solid var(--border);padding:12px 0;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.list-item p{margin:3px 0}
+.option{display:block;width:100%;text-align:left;margin:8px 0;background:#0b170f}
+.option.selected{border-color:var(--green);background:#193c27}
+.option.correct{border-color:var(--green)}
+.option.wrong{border-color:var(--red)}
+.progress{height:8px;border-radius:9px;background:#24342a;overflow:hidden}
+.progress div{height:100%;background:var(--green);width:0}
+footer{text-align:center;padding:25px;color:var(--muted);border-top:1px solid var(--border)}
+hr{border:0;border-top:1px solid var(--border);margin:20px 0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+td,th{padding:9px;text-align:left;border-bottom:1px solid var(--border)}
+.tablewrap{overflow-x:auto}
+#adminArea{border:1px solid var(--green2);border-radius:16px;padding:16px;background:#0b1710}
+.adminnav{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}
+@media(max-width:520px){header{position:static}nav button{padding:8px;font-size:12px}.hero{padding:23px 15px}.card{padding:13px}}
 </style>
 </head>
 <body>
 <header>
-  <div class="brand">AcePoint <span>Tutorials</span></div>
+  <div class="brand">AcePoint Tutorials<small>LEARN • PRACTISE • EXCEL</small></div>
   <nav>
-    <a href="#learn">Learn</a>
-    <a href="#cbt">CBT Practice</a>
-    <a href="#about">About</a>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('cbt')">CBT Practice</button>
+    <button onclick="showPage('progress')">My Progress</button>
+    <button onclick="showPage('plans')">Membership</button>
+    <button onclick="showPage('admin')">Admin</button>
   </nav>
 </header>
 
-<section class="hero">
-  <p class="tag">YOUR EXAM. YOUR FUTURE.</p>
-  <h1>Prepare smarter for JAMB and WAEC.</h1>
-  <p>Study with purpose, test your understanding and review your answers with AcePoint Tutorials.</p>
-  <a class="btn" href="#learn">Explore learning</a>
-  <a class="btn secondary" href="#cbt">Start CBT practice</a>
-</section>
-
 <main>
-<section id="learn" class="section">
-  <h2 class="section-title">Your learning centre</h2>
-  <p class="muted">Start with practice questions now. Structured lessons and a larger question bank will be added in later stages.</p>
-  <div class="cards">
-    <article class="card">
-      <h3>📚 Study lessons</h3>
-      <p>Organised lessons by subject and topic are part of our next development stage.</p>
-    </article>
-    <article class="card">
-      <h3>📝 CBT practice</h3>
-      <p>Answer multiple-choice questions, use the timer and review your results.</p>
-      <a class="btn" href="#cbt">Open CBT</a>
-    </article>
-    <article class="card">
-      <h3>📈 Learning progress</h3>
-      <p>Your score is shown at the end of each practice session. Account-based history comes later.</p>
-    </article>
-  </div>
-</section>
-
-<section id="cbt" class="section">
-  <h2 class="section-title">Computer-Based Test</h2>
-  <p class="muted">Choose an exam and subject, then begin your practice session.</p>
-
-  <div id="setup" class="panel">
+<section id="home" class="page">
+  <div class="hero">
+    <span class="eyebrow">YOUR EXAM SUCCESS STARTS HERE</span>
+    <h1>Prepare smarter.<br><span style="color:var(--green)">Score higher.</span></h1>
+    <p>Practise JAMB and WAEC questions, test your knowledge and track your learning journey with AcePoint Tutorials.</p>
     <div class="row">
-      <div>
-        <label for="examType">Exam type</label>
-        <select id="examType">
-          <option value="JAMB">JAMB practice</option>
-          <option value="WAEC">WAEC practice</option>
-        </select>
-      </div>
-      <div>
-        <label for="subject">Subject</label>
-        <select id="subject">
-          <option value="Mathematics">Mathematics</option>
-          <option value="English">Use of English</option>
-          <option value="Physics">Physics</option>
-          <option value="Chemistry">Chemistry</option>
-        </select>
-      </div>
+      <button class="primary" onclick="showPage('cbt')">Start CBT Practice →</button>
+      <button onclick="showPage('plans')">Explore Membership</button>
     </div>
-    <p class="small">This first version uses demonstration questions only. It is not yet a complete official JAMB or WAEC question bank.</p>
-    <button class="btn" id="startBtn">Start examination</button>
+    <p class="small">Our question bank is being developed. The included questions are starter examples, not a complete JAMB/WAEC database.</p>
   </div>
 
-  <div id="exam" class="panel hidden">
-    <div class="exam-top">
-      <div>
-        <strong id="examHeading">Practice test</strong>
-        <div class="small" id="examDetails"></div>
-      </div>
-      <div class="timer" id="timer" aria-live="polite">20:00</div>
+  <section>
+    <h2>Choose your subject</h2>
+    <div id="subjectGrid" class="grid"></div>
+  </section>
+  <section>
+    <h2>How AcePoint works</h2>
+    <div class="grid">
+      <div class="card"><span class="big">01</span><h3>Learn</h3><p>Study materials and lessons can be added as the platform grows.</p></div>
+      <div class="card"><span class="big">02</span><h3>Practise</h3><p>Answer multiple-choice questions and submit your practice test.</p></div>
+      <div class="card"><span class="big">03</span><h3>Track</h3><p>Review your scores and see your practice history on this device.</p></div>
     </div>
-    <div class="progress"><div id="progressBar"></div></div>
-    <div class="question-number" id="questionNumber"></div>
-    <div class="question-text" id="questionText"></div>
-    <div id="options"></div>
-    <div class="exam-actions">
-      <button class="btn secondary" id="prevBtn">Previous</button>
-      <button class="btn" id="nextBtn">Next</button>
-      <button class="btn hidden" id="submitBtn">Submit test</button>
-    </div>
-    <p class="small" id="answeredCount"></p>
-  </div>
+  </section>
+</section>
 
-  <div id="results" class="panel hidden" aria-live="polite">
-    <h3>Examination complete</h3>
-    <p>Your score:</p>
-    <div class="result-score" id="scoreText"></div>
-    <p id="resultMessage"></p>
-    <p id="resultDetails" class="muted"></p>
-    <button class="btn" id="reviewBtn">Review answers</button>
-    <button class="btn secondary" id="retryBtn">Try again</button>
-    <div id="review" class="hidden">
-      <h3>Answer review</h3>
-      <div id="reviewList"></div>
+<section id="cbt" class="page hidden">
+  <h2>CBT Practice Centre</h2>
+  <p>Select a subject and the number of questions for your practice session.</p>
+  <div class="card">
+    <label for="subjectSelect">Subject</label>
+    <select id="subjectSelect"></select>
+    <label for="examSelect">Exam type</label>
+    <select id="examSelect"><option>JAMB</option><option>WAEC</option><option>General Practice</option></select>
+    <label for="countSelect">Number of questions</label>
+    <select id="countSelect"><option value="5">5 questions</option><option value="10">10 questions</option><option value="20">20 questions</option><option value="40">40 questions</option><option value="all">All available questions</option></select>
+    <button class="primary" onclick="startCBT()">Start Practice</button>
+    <p class="small">The test can only contain questions currently available in the local question bank.</p>
+  </div>
+  <div id="testArea" class="card hidden" style="margin-top:15px">
+    <div class="row"><span id="testLabel"></span><span id="questionCount" style="text-align:right"></span></div>
+    <div class="progress"><div id="testProgress"></div></div>
+    <h3 id="questionText" style="margin-top:18px"></h3>
+    <div id="optionsArea"></div>
+    <div class="row">
+      <button onclick="previousQuestion()">← Previous</button>
+      <button onclick="nextQuestion()">Next →</button>
     </div>
+    <button class="primary" style="width:100%;margin-top:12px" onclick="submitCBT()">Submit Test</button>
+  </div>
+  <div id="testResult" class="card hidden" style="margin-top:15px"></div>
+</section>
+
+<section id="progress" class="page hidden">
+  <h2>My Learning Progress</h2>
+  <p>Your practice history saved in this browser.</p>
+  <div class="grid">
+    <div class="card"><p>Tests completed</p><div class="big" id="testTotal">0</div></div>
+    <div class="card"><p>Average score</p><div class="big" id="averageScore">0%</div></div>
+    <div class="card"><p>Best score</p><div class="big" id="bestScore">0%</div></div>
+  </div>
+  <div class="card" style="margin-top:15px">
+    <h3>Practice history</h3>
+    <div id="historyList"></div>
+    <button onclick="clearHistory()" class="danger">Clear this browser's history</button>
+  </div>
+  <div class="warning">This version saves progress on this device only. It does not yet have student accounts or cloud synchronisation.</div>
+</section>
+
+<section id="plans" class="page hidden">
+  <h2>Membership Plans</h2>
+  <p>Choose a plan to access future premium learning features.</p>
+  <div class="grid" id="plansGrid"></div>
+  <div class="card" style="margin-top:15px">
+    <h3>Payment information</h3>
+    <p>Bank transfer and manual payment approval will be configured after secure backend setup.</p>
+    <div class="warning">Do not transfer money based on this preview. Payment verification and membership activation are not connected yet.</div>
+    <button onclick="showPage('admin')">Admin setup</button>
   </div>
 </section>
 
-<section id="about" class="section">
-  <h2 class="section-title">About AcePoint Tutorials</h2>
-  <p class="muted">AcePoint Tutorials is being developed to help candidates prepare for JAMB and WAEC through organised study materials and exam practice.</p>
+<section id="admin" class="page hidden">
+  <h2>Admin Centre</h2>
+  <p>Manage your question bank and configure your platform.</p>
+  <div class="warning"><strong>Prototype only:</strong> this admin gate uses browser-side code and is not secure. Do not enter a real password, approve real payments, or use it to protect private student data. Secure admin access requires Supabase authentication and database permissions.</div>
+  <div id="adminLogin" class="card">
+    <h3>Admin login preview</h3>
+    <label for="adminPass">Prototype access code</label>
+    <input id="adminPass" type="password" placeholder="Enter the demo code">
+    <button class="primary" onclick="adminLogin()">Open Admin Panel</button>
+    <p class="small">Demo code: <strong>ACEPOINT-DEMO</strong>. Anyone who can inspect this file can discover or bypass this code. It is not real security.</p>
+    <p id="loginError" class="danger"></p>
+  </div>
+
+  <div id="adminArea" class="hidden">
+    <div class="row">
+      <div><span class="pill">Admin preview</span><h3>Welcome, Administrator</h3></div>
+      <button onclick="adminLogout()">Lock panel</button>
+    </div>
+    <div class="grid">
+      <div class="card"><p>Questions in this browser</p><div class="big" id="adminQuestionTotal">0</div></div>
+      <div class="card"><p>Practice attempts on this device</p><div class="big" id="adminAttemptTotal">0</div></div>
+      <div class="card"><p>Payment requests</p><div class="big">Not connected</div></div>
+    </div>
+    <div class="adminnav">
+      <button onclick="adminTab('questions')">Questions</button>
+      <button onclick="adminTab('results')">Results</button>
+      <button onclick="adminTab('pricing')">Pricing</button>
+      <button onclick="adminTab('payments')">Payments</button>
+      <button onclick="adminTab('content')">Content</button>
+    </div>
+
+    <div id="adminQuestions" class="adminTab card">
+      <h3>Question Manager</h3>
+      <p>Add a multiple-choice question to the local question bank.</p>
+      <label>Subject</label><select id="newSubject"></select>
+      <label>Question</label><textarea id="newQuestion" placeholder="Type the question"></textarea>
+      <div class="row"><div><label>Option A</label><input id="optA"></div><div><label>Option B</label><input id="optB"></div></div>
+      <div class="row"><div><label>Option C</label><input id="optC"></div><div><label>Option D</label><input id="optD"></div></div>
+      <label>Correct option</label><select id="correctOption"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select>
+      <label>Explanation (optional)</label><textarea id="newExplanation" placeholder="Explain why the answer is correct"></textarea>
+      <button class="primary" onclick="addQuestion()">Save Question</button>
+      <hr><h3>Current question bank</h3>
+      <div id="questionAdminList"></div>
+    </div>
+
+    <div id="adminResults" class="adminTab card hidden">
+      <h3>Practice Results</h3>
+      <p>These are local practice attempts, not a list of registered students.</p>
+      <div id="adminResultsList"></div>
+    </div>
+
+    <div id="adminPricing" class="adminTab card hidden">
+      <h3>Membership Pricing</h3>
+      <p>Change the prices shown on this browser. Online payment and account access are not activated.</p>
+      <div id="pricingEditor"></div>
+      <button class="primary" onclick="savePrices()">Save Prices</button>
+    </div>
+
+    <div id="adminPayments" class="adminTab card hidden">
+      <h3>Payment Requests</h3>
+      <p>Payment requests, transfer verification, approval, rejection and membership activation require a secure backend. No real payment records are available in this prototype.</p>
+      <span class="pill">Backend not connected</span>
+    </div>
+
+    <div id="adminContent" class="adminTab card hidden">
+      <h3>Lessons and Study Materials</h3>
+      <p>Future feature: add notes, video lessons, syllabus topics and learning resources through the admin panel.</p>
+      <p>For now, content management is not connected to a database.</p>
+    </div>
+  </div>
 </section>
 </main>
 
 <footer>
-  <p>© <span id="year"></span> AcePoint Tutorials. Learn with purpose.</p>
+  <strong>AcePoint Tutorials</strong>
+  <p>Helping JAMB and WAEC candidates prepare with confidence.</p>
+  <span class="small">Independent learning platform. Not affiliated with JAMB or WAEC.</span>
 </footer>
 
 <script>
-"use strict";
+const SUBJECTS = [
+"Use of English","Mathematics","Physics","Chemistry","Biology",
+"Economics","Government","Literature in English","Commerce",
+"Accounting","Further Mathematics","Geography",
+"Agricultural Science","Civic Education","Computer Studies"
+];
 
-const questionBank = {
-  Mathematics: [
-    {q:"Simplify 3/18 to its lowest terms.",o:["1/3","1/6","1/9","3/6"],a:1,e:"Divide the numerator and denominator by 3: 3/18 = 1/6."},
-    {q:"Solve: 2x + 5 = 13.",o:["3","4","5","9"],a:1,e:"Subtract 5 from both sides to get 2x = 8, so x = 4."},
-    {q:"Find the area of a rectangle of length 8 cm and width 3 cm.",o:["11 cm²","22 cm²","24 cm²","48 cm²"],a:2,e:"Area = length × width = 8 × 3 = 24 cm²."},
-    {q:"Express 0.25 as a fraction in its lowest terms.",o:["1/2","1/3","1/4","2/5"],a:2,e:"0.25 = 25/100 = 1/4."},
-    {q:"What is the sum of the interior angles of a triangle?",o:["90°","180°","270°","360°"],a:1,e:"The interior angles of a triangle add up to 180°."}
-  ],
-  English: [
-    {q:"Choose the word nearest in meaning to 'rapid'.",o:["Slow","Quick","Weak","Late"],a:1,e:"Rapid means happening or moving quickly."},
-    {q:"Choose the correct option: She _____ to school every day.",o:["go","going","goes","gone"],a:2,e:"With 'she' in the simple present tense, use 'goes'."},
-    {q:"Choose the opposite of 'ancient'.",o:["Old","Historic","Modern","Former"],a:2,e:"Modern is the opposite of ancient."},
-    {q:"Which word is a noun?",o:["Beautiful","Quickly","Happiness","Run"],a:2,e:"Happiness is a noun naming a state or quality."},
-    {q:"Choose the correct sentence.",o:["They was ready.","They were ready.","They is ready.","They be ready."],a:1,e:"'They' takes 'were' in the past tense."}
-  ],
-  Physics: [
-    {q:"What is the SI unit of force?",o:["Joule","Watt","Newton","Pascal"],a:2,e:"Force is measured in newtons (N)."},
-    {q:"Which instrument measures electric current?",o:["Voltmeter","Ammeter","Barometer","Thermometer"],a:1,e:"An ammeter measures electric current."},
-    {q:"Speed is calculated as:",o:["Time ÷ distance","Distance × time","Distance ÷ time","Mass × acceleration"],a:2,e:"Speed = distance travelled divided by time taken."},
-    {q:"Which form of energy is associated with a moving object?",o:["Kinetic energy","Chemical energy","Nuclear energy","Elastic potential energy"],a:0,e:"A moving object possesses kinetic energy."},
-    {q:"What is the approximate acceleration due to gravity near Earth's surface?",o:["0.98 m/s²","9.8 m/s²","98 m/s²","980 m/s²"],a:1,e:"The usual approximate value is 9.8 m/s²."}
-  ],
-  Chemistry: [
-    {q:"What is the chemical symbol for sodium?",o:["S","So","Na","N"],a:2,e:"The chemical symbol for sodium is Na."},
-    {q:"A solution with pH 2 is:",o:["Acidic","Neutral","Alkaline","Always pure water"],a:0,e:"A pH below 7 indicates an acidic solution."},
-    {q:"What is the chemical formula of water?",o:["CO₂","H₂O","O₂","NaCl"],a:1,e:"Water contains two hydrogen atoms and one oxygen atom: H₂O."},
-    {q:"Which gas is required for ordinary combustion?",o:["Nitrogen","Oxygen","Helium","Hydrogen only"],a:1,e:"Oxygen supports ordinary combustion."},
-    {q:"What is the charge of an electron?",o:["Positive","Negative","Neutral","It has no charge or mass"],a:1,e:"An electron carries a negative electric charge."}
-  ]
-};
+const starterQuestions = [
+{subject:"Mathematics",q:"Solve: 2x + 6 = 14.",o:["2","3","4","5"],a:2,e:"2x = 14 − 6 = 8, so x = 4."},
+{subject:"Mathematics",q:"Evaluate 3² + 4.",o:["9","12","13","16"],a:2,e:"3² + 4 = 9 + 4 = 13."},
+{subject:"Physics",q:"What is the SI unit of force?",o:["Joule","Newton","Watt","Pascal"],a:1,e:"Force is measured in newtons (N)."},
+{subject:"Physics",q:"Which instrument measures electric current?",o:["Voltmeter","Barometer","Ammeter","Thermometer"],a:2,e:"An ammeter measures electric current."},
+{subject:"Chemistry",q:"What is the chemical symbol for sodium?",o:["So","S","Na","N"],a:2,e:"The chemical symbol for sodium is Na."},
+{subject:"Chemistry",q:"A solution with pH 2 is:",o:["Acidic","Neutral","Alkaline","Always pure water"],a:0,e:"A pH below 7 is acidic."},
+{subject:"Use of English",q:"Choose the correct spelling.",o:["Accomodation","Accommodation","Acommodation","Accommmodation"],a:1,e:"The correct spelling is accommodation."},
+{subject:"Biology",q:"Which organelle is the main site of photosynthesis?",o:["Mitochondrion","Nucleus","Chloroplast","Ribosome"],a:2,e:"Photosynthesis occurs in chloroplasts."}
+];
 
-const $ = id => document.getElementById(id);
-let questions = [];
-let answers = [];
-let current = 0;
-let seconds = 1200;
-let timerId = null;
-let finished = false;
-
-$("year").textContent = new Date().getFullYear();
-
-function shuffle(items){
-  const copy = items.slice();
-  for(let i=copy.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [copy[i],copy[j]]=[copy[j],copy[i]];
-  }
-  return copy;
+function load(key,fallback){
+ try{const v=localStorage.getItem(key);return v===null?fallback:JSON.parse(v)}
+ catch(e){return fallback}
 }
+function save(key,value){localStorage.setItem(key,JSON.stringify(value))}
+let questions=load("ap_questions",starterQuestions);
+let history=load("ap_history",[]);
+let prices=load("ap_prices",[
+{name:"Bronze",year:3000,month:1000,desc:"A starting point for exam preparation"},
+{name:"Silver",year:5000,month:2000,desc:"More learning and practice opportunities"},
+{name:"Gold",year:8000,month:3000,desc:"The premium learning plan"}
+]);
+let currentTest=[],answers=[],testIndex=0,testStarted=false;
 
-function startExam(){
-  clearInterval(timerId);
-  const subject = $("subject").value;
-  const examType = $("examType").value;
-  questions = shuffle(questionBank[subject]);
-  answers = Array(questions.length).fill(null);
-  current = 0;
-  seconds = 1200;
-  finished = false;
-
-  $("setup").classList.add("hidden");
-  $("results").classList.add("hidden");
-  $("exam").classList.remove("hidden");
-  $("review").classList.add("hidden");
-  $("examHeading").textContent = examType + " practice";
-  $("examDetails").textContent = subject + " • Demonstration test";
-  renderQuestion();
-  updateTimer();
-  timerId = setInterval(()=>{
-    seconds--;
-    updateTimer();
-    if(seconds<=0) submitExam(true);
-  },1000);
-  $("cbt").scrollIntoView({behavior:"smooth"});
+function showPage(id){
+ document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));
+ document.getElementById(id).classList.remove("hidden");
+ if(id==="progress")renderProgress();
+ if(id==="plans")renderPlans();
+ if(id==="admin")refreshAdmin();
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-
-function updateTimer(){
-  const m=Math.floor(seconds/60);
-  const s=seconds%60;
-  $("timer").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+function initSubjects(){
+ ["subjectSelect","newSubject"].forEach(id=>{
+  const el=document.getElementById(id);
+  el.innerHTML=SUBJECTS.map(s=>`<option>${s}</option>`).join("");
+ });
+ document.getElementById("subjectGrid").innerHTML=SUBJECTS.map(s=>
+  `<div class="card"><span class="pill">SUBJECT</span><h3>${esc(s)}</h3><p>Practice available questions in ${esc(s)}.</p><button onclick="chooseSubject('${escAttr(s)}')">Practise →</button></div>`
+ ).join("");
 }
+function chooseSubject(s){
+ document.getElementById("subjectSelect").value=s;
+ showPage("cbt");
+}
+function esc(s){
+ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function escAttr(s){return String(s).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
 
+function startCBT(){
+ const subject=document.getElementById("subjectSelect").value;
+ const count=document.getElementById("countSelect").value;
+ let available=questions.filter(q=>q.subject===subject);
+ if(!available.length){alert("No questions are available for this subject yet. You can add questions from the admin panel.");return}
+ currentTest=[...available].sort(()=>Math.random()-.5);
+ if(count!=="all")currentTest=currentTest.slice(0,Number(count));
+ answers=Array(currentTest.length).fill(null);
+ testIndex=0;testStarted=true;
+ document.getElementById("testResult").classList.add("hidden");
+ document.getElementById("testArea").classList.remove("hidden");
+ document.getElementById("testLabel").textContent=document.getElementById("examSelect").value+" • "+subject;
+ renderQuestion();
+}
 function renderQuestion(){
-  const q=questions[current];
-  $("questionNumber").textContent="Question "+(current+1)+" of "+questions.length;
-  $("questionText").textContent=q.q;
-  $("options").replaceChildren();
-
-  q.o.forEach((option,index)=>{
-    const label=document.createElement("label");
-    label.className="option";
-    const radio=document.createElement("input");
-    radio.type="radio";
-    radio.name="answer";
-    radio.value=index;
-    radio.checked=answers[current]===index;
-    radio.addEventListener("change",()=>{
-      answers[current]=index;
-      updateProgress();
-    });
-    const text=document.createElement("span");
-    text.textContent=String.fromCharCode(65+index)+". "+option;
-    label.append(radio,text);
-    $("options").append(label);
-  });
-
-  $("prevBtn").disabled=current===0;
-  $("nextBtn").classList.toggle("hidden",current===questions.length-1);
-  $("submitBtn").classList.toggle("hidden",current!==questions.length-1);
-  updateProgress();
+ const q=currentTest[testIndex];
+ document.getElementById("questionCount").textContent=`Question ${testIndex+1} of ${currentTest.length}`;
+ document.getElementById("questionText").textContent=q.q;
+ document.getElementById("testProgress").style.width=((testIndex+1)/currentTest.length*100)+"%";
+ document.getElementById("optionsArea").innerHTML=q.o.map((o,i)=>
+  `<button class="option ${answers[testIndex]===i?"selected":""}" onclick="pickAnswer(${i})">${"ABCD"[i]}. ${esc(o)}</button>`
+ ).join("");
 }
-
-function updateProgress(){
-  const answered=answers.filter(a=>a!==null).length;
-  $("answeredCount").textContent=answered+" of "+questions.length+" questions answered";
-  $("progressBar").style.width=(answered/questions.length*100)+"%";
+function pickAnswer(i){answers[testIndex]=i;renderQuestion()}
+function nextQuestion(){if(testIndex<currentTest.length-1){testIndex++;renderQuestion()}}
+function previousQuestion(){if(testIndex>0){testIndex--;renderQuestion()}}
+function submitCBT(){
+ if(!testStarted||!currentTest.length)return;
+ const unanswered=answers.filter(a=>a===null).length;
+ if(unanswered&&!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`))return;
+ let correct=0;
+ currentTest.forEach((q,i)=>{if(answers[i]===q.a)correct++});
+ const score=Math.round(correct/currentTest.length*100);
+ const record={date:new Date().toLocaleString(),subject:currentTest[0].subject,exam:document.getElementById("examSelect").value,correct,total:currentTest.length,score};
+ history.unshift(record);save("ap_history",history);
+ testStarted=false;
+ document.getElementById("testArea").classList.add("hidden");
+ const result=document.getElementById("testResult");
+ result.classList.remove("hidden");
+ result.innerHTML=`<span class="pill">TEST COMPLETED</span><h2>Your Score: <span class="big">${score}%</span></h2><p>You answered ${correct} out of ${currentTest.length} questions correctly.</p><h3>Answer Review</h3>`+
+ currentTest.map((q,i)=>`<div class="list-item"><div><strong>${i+1}. ${esc(q.q)}</strong><p>Your answer: ${answers[i]===null?"Not answered":esc(q.o[answers[i]])}</p><p>Correct answer: ${esc(q.o[q.a])}</p><p>${esc(q.e||"")}</p></div><span class="pill">${answers[i]===q.a?"Correct":"Review"}</span></div>`).join("")+
+ `<button class="primary" onclick="startCBT()">Try Again</button> <button onclick="showPage('progress')">View Progress</button>`;
 }
-
-function submitExam(auto=false){
-  if(finished)return;
-  if(!auto && !confirm("Submit your examination now?"))return;
-  finished=true;
-  clearInterval(timerId);
-  let score=0;
-  questions.forEach((q,i)=>{if(answers[i]===q.a)score++;});
-  const percent=Math.round(score/questions.length*100);
-  $("exam").classList.add("hidden");
-  $("results").classList.remove("hidden");
-  $("scoreText").textContent=score+" / "+questions.length+" ("+percent+"%)";
-  $("resultMessage").textContent=auto&&seconds<=0?"Time is up. Your test has been submitted.":percent>=80?"Excellent work! Keep practising.":percent>=50?"Good effort. Review your mistakes and practise again.":"Keep learning. Review the explanations and try again.";
-  $("resultDetails").textContent="Correct: "+score+" • Incorrect or unanswered: "+(questions.length-score)+". This result is for this browser practice session only.";
-  $("review").classList.add("hidden");
-  $("reviewBtn").textContent="Review answers";
-  $("cbt").scrollIntoView({behavior:"smooth"});
+function renderProgress(){
+ document.getElementById("testTotal").textContent=history.length;
+ const avg=history.length?Math.round(history.reduce((a,b)=>a+b.score,0)/history.length):0;
+ document.getElementById("averageScore").textContent=avg+"%";
+ document.getElementById("bestScore").textContent=(history.length?Math.max(...history.map(x=>x.score)):0)+"%";
+ document.getElementById("historyList").innerHTML=history.length?history.map(h=>
+ `<div class="list-item"><div><strong>${esc(h.subject)} • ${esc(h.exam)}</strong><p>${esc(h.date)} — ${h.correct}/${h.total} correct</p></div><span class="big">${h.score}%</span></div>`
+ ).join(""):"<p>No practice attempts yet. Complete a CBT to see your progress.</p>";
 }
-
-function showReview(){
-  const container=$("reviewList");
-  container.replaceChildren();
-  questions.forEach((q,i)=>{
-    const item=document.createElement("article");
-    item.className="review-item";
-    const heading=document.createElement("p");
-    heading.textContent="Question "+(i+1)+": "+q.q;
-    const your=document.createElement("p");
-    const chosen=answers[i]===null?"Not answered":q.o[answers[i]];
-    your.textContent="Your answer: "+chosen;
-    your.className=answers[i]===q.a?"correct":"wrong";
-    const correct=document.createElement("p");
-    correct.className="correct";
-    correct.textContent="Correct answer: "+q.o[q.a];
-    const explanation=document.createElement("p");
-    explanation.textContent="Explanation: "+q.e;
-    item.append(heading,your,correct,explanation);
-    container.append(item);
-  });
-  $("review").classList.remove("hidden");
-  $("review").scrollIntoView({behavior:"smooth"});
+function clearHistory(){
+ if(confirm("Clear all practice history saved in this browser?")){
+ history=[];save("ap_history",history);renderProgress();refreshAdmin();
+ }
 }
-
-$("startBtn").addEventListener("click",startExam);
-$("prevBtn").addEventListener("click",()=>{
-  if(current>0){current--;renderQuestion();}
-});
-$("nextBtn").addEventListener("click",()=>{
-  if(current<questions.length-1){current++;renderQuestion();}
-});
-$("submitBtn").addEventListener("click",()=>submitExam(false));
-$("reviewBtn").addEventListener("click",()=>{
-  const isHidden=$("review").classList.contains("hidden");
-  if(isHidden)showReview();
-  else $("review").classList.add("hidden");
-});
-$("retryBtn").addEventListener("click",()=>{
-  $("results").classList.add("hidden");
-  $("setup").classList.remove("hidden");
-  $("cbt").scrollIntoView({behavior:"smooth"});
-});
-</script>
-</body>
-                                                  </html>
-                                                  
+function renderPlans(){
+ document.getElementById("pl
